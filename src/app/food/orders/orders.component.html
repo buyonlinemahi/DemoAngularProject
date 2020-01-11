@@ -1,0 +1,30 @@
+<div class="conatiner" style="padding-top:20px;">  
+  <div class="col-sm-5" style="padding-top:20px;padding-bottom:20px;" >  
+       <input class="form-control" type="text" placeholder="Search......." [(ngModel)]="SearchText">        
+  </div>  
+</div> 
+<table class="table table-hover">
+  <thead class="thead-light">
+    <th>#Order No.</th>
+    <th>Customer</th>
+    <th>P. Method</th>
+    <th>G. Total</th>
+    <th>
+      <a class="btn btn-outline-success" routerLink="/food/order"><i class="fa fa-plus-square"></i> Create New </a>
+    </th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of orderArrayList | filter: SearchText | paginate: config">
+      <th (click)="openForEdit(item.OrderID)">{{item.OrderNo}}</th>
+      <th>{{item.CustomerName}}</th>
+      <th>{{item.PMethod}}</th>
+      <th>{{item.GTotal}}</th>
+      <th>
+        <a class="btn text-danger" (click)="onOrderDelete(item.OrderID)"><i class="fa fa-trash fa-lg"></i></a>
+      </th>
+    </tr>
+  </tbody>
+  <ul class="pagination">  
+    <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+    </ul> 
+</table>

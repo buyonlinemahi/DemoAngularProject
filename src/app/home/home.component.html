@@ -1,0 +1,14 @@
+<nav class="navbar navbar-dark ">
+  <!-- Navbar content -->
+  <a class="navbar-brand text-white">Mahinder Singh System</a>
+  <button class="btn btn-danger my-2 my-sm-0" (click)="onLogOut()">LogOut</button>
+</nav>
+
+<div class="card m-5" style="width: 18rem" *ngIf="userDetails">
+<ul class="list-group">
+<li class="list-group-item"><strong>UserName : </strong>{{userDetails.UserName}}</li>
+<li class="list-group-item"><strong>FullName : </strong>{{userDetails.FirstName + ' ' + userDetails.LastName}} </li>
+<li class="list-group-item"><strong>Email : </strong>{{userDetails.EmailId}}</li>
+</ul>
+<a class="btn btn-outline-dark ml-1" routerLink="/food/order"><i class="fa fa-table"></i>food Corner</a>
+</div>
